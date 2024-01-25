@@ -17,7 +17,6 @@ if __name__ == "__main__":
         r' \d+$'
     )
 
-
     def print_stats():
         print('File size: {}'.format(total_file_size))
         for key, value in sorted(dict_status.items()):
@@ -32,7 +31,6 @@ if __name__ == "__main__":
 
                 if match_file_size:
                     file_size = match_file_size.group()
-                    print(int())
                     total_file_size += int(file_size)
 
                 if match_status:
@@ -49,6 +47,7 @@ if __name__ == "__main__":
                 continue
 
     except Exception:
+        print("hep")
         pass
     finally:
         print_stats()
