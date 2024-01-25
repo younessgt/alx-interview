@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
                 if match_status:
 
-                    status = int(match_status.group(1))
+                    status = match_status.group(1)
 
                     if status in dict_status:
                         dict_status[status] += 1
