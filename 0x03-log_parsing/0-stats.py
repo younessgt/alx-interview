@@ -16,37 +16,37 @@ pattern = (
     r' \d+$'
 )
 
+if __name__ == "__main__":
+    def print_stats():
+        print('File size: {:d}'.format(total_file_size))
+        for key, value in sorted(dict_status.items()):
+            print('{}: {:d}'.format(key, value))
 
-def print_stats():
-    print('File size: {:d}'.format(total_file_size))
-    for key, value in sorted(dict_status.items()):
-        print('{}: {:d}'.format(key, value))
 
+    try:
+        for line in sys.stdin:
+            if re.match(pattern, line):
+                count += 1
+                match_file_size = re.search(r'\d+$', line)
+                match_status = re.search(r'(\d+)\s+\d+$', line)
 
-try:
-    for line in sys.stdin:
-        if re.match(pattern, line):
-            count += 1
-            match_file_size = re.search(r'\d+$', line)
-            match_status = re.search(r'(\d+)\s+\d+$', line)
+                if match_file_size:
+                    file_size = match_file_size.group()
+                    total_file_size += int(file_size)
 
-            if match_file_size:
-                file_size = match_file_size.group()
-                total_file_size += int(file_size)
+                if match_status:
+                    status = match_status.group(1)
+                    if status in dict_status:
+                        dict_status[status] += 1
+                    else:
+                        dict_status[status] = 1
 
-            if match_status:
-                status = match_status.group(1)
-                if status in dict_status:
-                    dict_status[status] += 1
-                else:
-                    dict_status[status] = 1
+                if count % 10 == 0:
+                    count = 0
+                    print_stats()
+            else:
+                continue
 
-            if count % 10 == 0:
-                count = 0
-                print_stats()
-        else:
-            continue
-
-except KeyboardInterrupt:
-    print_stats()
-    sys.exit(0)
+    except KeyboardInterrupt:
+        print_stats()
+        raise
