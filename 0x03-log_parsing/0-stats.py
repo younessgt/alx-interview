@@ -15,6 +15,14 @@ pattern = (
     r' \d{3}'
     r' \d+$'
 )
+
+
+def print_stats():
+    print('File size: {:d}'.format(total_file_size))
+    for key, value in sorted(dict_status.items()):
+        print('{}: {:d}'.format(key, value))
+
+
 for line in sys.stdin:
 
     try:
@@ -27,7 +35,7 @@ for line in sys.stdin:
             if match_file_size:
                 file_size = match_file_size.group()
                 total_file_size += int(file_size)
-            
+
             if match_status:
                 status = match_status.group(1)
                 if status in dict_status:
@@ -36,12 +44,11 @@ for line in sys.stdin:
                     dict_status[status] = 1
 
             if count % 10 == 0:
-                raise KeyboardInterrupt
+                count = 0
+                print_stats()
         else:
             continue
 
     except KeyboardInterrupt:
-        count = 0
-        print('File size: {:d}'.format(total_file_size))
-        for key, value in sorted(dict_status.items()):
-            print('{}: {:d}'.format(key, value))
+        print_stats()
+        raise KeyboardInterrupt
