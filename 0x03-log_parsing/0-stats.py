@@ -41,12 +41,11 @@ if __name__ == "__main__":
                         dict_status[status] = 1
 
                 if count % 10 == 0:
-                    count = 0
                     print_stats()
             else:
                 continue
 
     except Exception:
+        pass
+    finally:
         print_stats()
-    # finally:
-        # print_stats()
