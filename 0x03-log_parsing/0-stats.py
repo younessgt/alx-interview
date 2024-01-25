@@ -2,6 +2,7 @@
 """script that reads stdin line by line and computes metrics """
 import sys
 import re
+from typing import final
 
 count = 0
 total_file_size = 0
@@ -22,7 +23,6 @@ if __name__ == "__main__":
         for key, value in sorted(dict_status.items()):
             print('{}: {:d}'.format(key, value))
 
-
     try:
         for line in sys.stdin:
             if re.match(pattern, line):
@@ -32,6 +32,7 @@ if __name__ == "__main__":
 
                 if match_file_size:
                     file_size = match_file_size.group()
+                    print(int())
                     total_file_size += int(file_size)
 
                 if match_status:
@@ -47,6 +48,7 @@ if __name__ == "__main__":
             else:
                 continue
 
-    except KeyboardInterrupt:
+    except Exception:
+        pass
+    finally:
         print_stats()
-        raise
