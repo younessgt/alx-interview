@@ -27,20 +27,15 @@ for line in sys.stdin:
             if match_file_size:
                 file_size = match_file_size.group()
                 total_file_size += int(file_size)
-            else:
-                print("No number found at the end of the string.")
-
+            
             if match_status:
                 status = match_status.group(1)
                 if status in dict_status:
                     dict_status[status] += 1
                 else:
                     dict_status[status] = 1
-            else:
-                print("no second number")
 
             if count % 10 == 0:
-                print('Simulating CTRL+C interruption after 10 lines...')
                 raise KeyboardInterrupt
         else:
             continue
