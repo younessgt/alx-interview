@@ -19,9 +19,9 @@ pattern = (
 
 if __name__ == "__main__":
     def print_stats():
-        print('File size: {:d}'.format(total_file_size))
+        print('File size: {}'.format(total_file_size))
         for key, value in sorted(dict_status.items()):
-            print('{}: {:d}'.format(key, value))
+            print('{}: {}'.format(key, value))
 
     try:
         for line in sys.stdin:
