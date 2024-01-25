@@ -23,10 +23,8 @@ def print_stats():
         print('{}: {:d}'.format(key, value))
 
 
-for line in sys.stdin:
-
-    try:
-
+try:
+    for line in sys.stdin:
         if re.match(pattern, line):
             count += 1
             match_file_size = re.search(r'\d+$', line)
@@ -49,6 +47,6 @@ for line in sys.stdin:
         else:
             continue
 
-    except KeyboardInterrupt:
-        print_stats()
-        raise KeyboardInterrupt
+except KeyboardInterrupt:
+    print_stats()
+    sys.exit(0)
