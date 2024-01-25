@@ -34,15 +34,13 @@ if __name__ == "__main__":
                     total_file_size += int(file_size)
 
                 if match_status:
-                    try:
-                        status = int(match_status.group(1))
 
-                        if status in dict_status:
-                            dict_status[status] += 1
-                        else:
-                            dict_status[status] = 1
-                    except Exception:
-                        pass
+                    status = int(match_status.group(1))
+
+                    if status in dict_status:
+                        dict_status[status] += 1
+                    else:
+                        dict_status[status] = 1
 
                 if count % 10 == 0:
                     print_stats()
