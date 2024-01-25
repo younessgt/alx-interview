@@ -46,7 +46,7 @@ if __name__ == "__main__":
             else:
                 continue
 
-    except Exception:
-        pass
-    finally:
+    except KeyboardInterrupt:
         print_stats()
+    # finally:
+        # print_stats()
