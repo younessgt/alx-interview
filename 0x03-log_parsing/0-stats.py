@@ -2,22 +2,22 @@
 """script that reads stdin line by line and computes metrics """
 import sys
 import re
-from typing import final
-
-count = 0
-total_file_size = 0
-dict_status = {}
-pattern = (
-    r'^(\d{1,3}\.){3}\d{1,3}'
-    r' - '
-    r'\[\d{4}-\d{2}-\d{2}'
-    r' \d{2}:\d{2}:\d{2}\.\d+\]'
-    r' "GET /projects/260 HTTP/1\.1"'
-    r' \d{3}'
-    r' \d+$'
-)
 
 if __name__ == "__main__":
+    count = 0
+    total_file_size = 0
+    dict_status = {}
+    pattern = (
+        r'^(\d{1,3}\.){3}\d{1,3}'
+        r' - '
+        r'\[\d{4}-\d{2}-\d{2}'
+        r' \d{2}:\d{2}:\d{2}\.\d+\]'
+        r' "GET /projects/260 HTTP/1\.1"'
+        r' \d{3}'
+        r' \d+$'
+    )
+
+
     def print_stats():
         print('File size: {}'.format(total_file_size))
         for key, value in sorted(dict_status.items()):
