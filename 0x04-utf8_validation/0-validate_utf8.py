@@ -20,6 +20,9 @@ def validUTF8(data):
     for byte in data:
         mask = 1 << 7
 
+        if byte > 255:
+            return False
+
         if count_bytes == 0:
 
             if byte & mask == 0:
@@ -29,7 +32,7 @@ def validUTF8(data):
                     count_bytes += 1
                 else:
                     break
-            if count_bytes == 1 or count_bytes > 4 or byte > 255:
+            if count_bytes == 1 or count_bytes > 4:
                 return False
 
         else:
