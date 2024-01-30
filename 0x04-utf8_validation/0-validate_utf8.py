@@ -7,14 +7,15 @@ def validUTF8(data):
     set represents a valid UTF-8 encoding"""
 
     """first solution """
-    """ try:
+    try:
         _ = bytearray(data).decode('utf-8')
         return True
     except Exception:
-        return False """
+        return False
 
     """second solution using bitwise operator"""
-    first_bit = 1 << 7
+
+    """first_bit = 1 << 7
     second_bit = 1 << 6
     count_bytes = 0
     for byte in data:
@@ -42,4 +43,4 @@ def validUTF8(data):
     if count_bytes:
         return False
     else:
-        return True
+        return True"""
