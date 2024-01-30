@@ -17,7 +17,6 @@ def validUTF8(data):
     first_bit = 1 << 7
     second_bit = 1 << 6
     count_bytes = 0
-
     for byte in data:
         mask = 1 << 7
 
@@ -37,4 +36,7 @@ def validUTF8(data):
             if not (byte & first_bit and not (byte & second_bit)):
                 return False
         count_bytes -= 1
-    return True
+    if count_bytes:
+        return False
+    else:
+        return True
