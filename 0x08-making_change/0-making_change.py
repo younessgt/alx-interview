@@ -7,6 +7,7 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
+    coins = [coin for coin in coins if coin <= total]
     acc = [total + 1] * (total + 1)
     acc[0] = 0
 
