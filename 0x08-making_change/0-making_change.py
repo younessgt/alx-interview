@@ -4,7 +4,7 @@
 
 def makeChange(coins, total):
     '''documentation needed'''
-    if total == 0:
+    if total <= 0:
         return 0
 
     acc = [total + 1] * (total + 1)
