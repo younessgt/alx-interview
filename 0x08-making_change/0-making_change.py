@@ -31,7 +31,7 @@ def makeChange(coins, total):
     else:
         return acc[total]"""
 
-    # method 2
+    # method 2 best one
     coins.sort()
     i = len(coins) - 1
     while (i >= 0):
