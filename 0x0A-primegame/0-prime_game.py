@@ -4,7 +4,7 @@
 
 def is_prime(n):
     """ checking if number is prime"""
-    if n == 1:
+    if n <= 1:
         return False
     if n == 2:
         return True
@@ -16,7 +16,7 @@ def is_prime(n):
     # because if n where divisible by any even number it would have been
     # divisible by 2 and thus already returned as not prime
 
-    for i in range(3, int(n ** 0.5) + 1, 2):
+    for i in range(3, int(n**0.5) + 1, 2):
         if n % i == 0:
             return False
     return True
