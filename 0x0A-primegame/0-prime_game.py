@@ -16,7 +16,7 @@ def is_prime(n):
     # because if n where divisible by any even number it would have been
     # divisible by 2 and thus already returned as not prime
 
-    for i in range(3, int(n**0.5) + 1, 2):
+    for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
             return False
     return True
@@ -33,9 +33,6 @@ def isWinner(x, nums):
     maria = 0
 
     for num in nums[:x]:
-        if num == 1:
-            ben += 1
-            continue
         if count_prime_number(num) % 2 == 0:
             ben += 1
         else:
