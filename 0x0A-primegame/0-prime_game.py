@@ -3,6 +3,7 @@
 
 
 def is_prime(n):
+    """ checking if number is prime"""
     if n == 1:
         return False
     if n == 2:
@@ -22,10 +23,12 @@ def is_prime(n):
 
 
 def count_prime_number(x):
+    ''' counting how many prime in the list'''
     return sum(is_prime(i) for i in range(1, x + 1))
 
 
 def isWinner(x, nums):
+    ''' function to check the winner'''
     ben = 0
     maria = 0
 
