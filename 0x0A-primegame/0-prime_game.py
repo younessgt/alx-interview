@@ -45,8 +45,8 @@ def isWinner(x, nums):
     ''' function to check the winner'''
     ben = 0
     maria = 0
-
-    for count in count_prime_number(nums[:x]):
+    primes = count_prime_number(nums[:x])
+    for count in primes:
         if count % 2 == 0:
             ben += 1
         else:
