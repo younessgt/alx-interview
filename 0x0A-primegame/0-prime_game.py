@@ -33,6 +33,9 @@ def isWinner(x, nums):
     maria = 0
 
     for num in nums[:x]:
+        if num == 1:
+            ben += 1
+            continue
         if count_prime_number(num) % 2 == 0:
             ben += 1
         else:
