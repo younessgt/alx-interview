@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 ''' prime game '''
 
-"""
+
 def is_prime(n):
     ''' checking if number is prime'''
     if n <= 1:
@@ -20,9 +20,9 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
-"""
 
 
+'''
 def sieve_of_eratosthenes(n):
     """Generate primes using Sieve of Eratosthenes up to n."""
     prime = [True for _ in range(n+1)]
@@ -37,17 +37,23 @@ def sieve_of_eratosthenes(n):
 
 
 def count_prime_number(x):
-    ''' counting how many prime in the list'''
+    """ counting how many prime in the list """
     return [len(sieve_of_eratosthenes(num)) for num in x]
+'''
+
+
+def count_prime_number(x):
+    ''' counting how many prime in the list'''
+    return sum(is_prime(i) for i in range(1, x + 1))
 
 
 def isWinner(x, nums):
     ''' function to check the winner'''
     ben = 0
     maria = 0
-    primes = count_prime_number(nums[:x])
-    for count in primes:
-        if count % 2 == 0:
+    # primes = count_prime_number(nums[:x])
+    for num in nums[:x]:
+        if count_prime_number(num) % 2 == 0:
             ben += 1
         else:
             maria += 1
